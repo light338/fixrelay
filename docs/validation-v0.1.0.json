@@ -1,0 +1,960 @@
+{
+  "version": 1,
+  "liveAgent": true,
+  "prewrittenTargetRepairs": false,
+  "sourceFix": {
+    "repo": "<DEMO_ROOT>/source",
+    "before": "e93959ff2a25843338ee131d39ebd8a04074300a",
+    "after": "3ddce4184471c46382fe1c72ba9d4cc0885f6917",
+    "entry": "src/csv.mjs",
+    "exportName": "csvCell"
+  },
+  "sourceProof": {
+    "before": {
+      "status": "reproduced",
+      "results": [
+        {
+          "id": "plain",
+          "kind": "control",
+          "status": "pass",
+          "actual": "alpha",
+          "expected": "alpha"
+        },
+        {
+          "id": "comma",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a,b\"",
+          "expected": "\"a,b\""
+        },
+        {
+          "id": "quote",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a\"\"b\"",
+          "expected": "\"a\"\"b\""
+        },
+        {
+          "id": "unicode",
+          "kind": "control",
+          "status": "pass",
+          "actual": "東京 Café",
+          "expected": "東京 Café"
+        },
+        {
+          "id": "empty",
+          "kind": "control",
+          "status": "pass",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "id": "lf",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first\nsecond",
+          "expected": "\"first\nsecond\""
+        },
+        {
+          "id": "cr",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first\rsecond",
+          "expected": "\"first\rsecond\""
+        },
+        {
+          "id": "crlf",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first\r\nsecond",
+          "expected": "\"first\r\nsecond\""
+        }
+      ]
+    },
+    "after": {
+      "status": "not_reproduced",
+      "results": [
+        {
+          "id": "plain",
+          "kind": "control",
+          "status": "pass",
+          "actual": "alpha",
+          "expected": "alpha"
+        },
+        {
+          "id": "comma",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a,b\"",
+          "expected": "\"a,b\""
+        },
+        {
+          "id": "quote",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a\"\"b\"",
+          "expected": "\"a\"\"b\""
+        },
+        {
+          "id": "unicode",
+          "kind": "control",
+          "status": "pass",
+          "actual": "東京 Café",
+          "expected": "東京 Café"
+        },
+        {
+          "id": "empty",
+          "kind": "control",
+          "status": "pass",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "id": "lf",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\nsecond\"",
+          "expected": "\"first\nsecond\""
+        },
+        {
+          "id": "cr",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\rsecond\"",
+          "expected": "\"first\rsecond\""
+        },
+        {
+          "id": "crlf",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\r\nsecond\"",
+          "expected": "\"first\r\nsecond\""
+        }
+      ]
+    }
+  },
+  "candidateCount": 3,
+  "results": [
+    {
+      "planId": "relay-6e1c5bed",
+      "repo": "<DEMO_ROOT>/billing",
+      "candidate": "<DEMO_ROOT>/run/candidates/tree-9a5cc5dd",
+      "file": "lib/cell.mjs",
+      "exportName": "encodeCell",
+      "status": "checks_passed",
+      "verificationStale": false,
+      "source": {
+        "repo": "<DEMO_ROOT>/source",
+        "before": "e93959ff2a25843338ee131d39ebd8a04074300a",
+        "after": "3ddce4184471c46382fe1c72ba9d4cc0885f6917",
+        "entry": "src/csv.mjs",
+        "exportName": "csvCell"
+      },
+      "before": {
+        "status": "reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\nsecond",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\rsecond",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\r\nsecond",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "after": {
+        "status": "not_reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\nsecond\"",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\rsecond\"",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\r\nsecond\"",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "verification": {
+        "passed": true,
+        "tree": "6377beb4806042fbac55b2b14cba682561351aaa",
+        "witness": {
+          "status": "not_reproduced",
+          "results": [
+            {
+              "id": "plain",
+              "kind": "control",
+              "status": "pass",
+              "actual": "alpha",
+              "expected": "alpha"
+            },
+            {
+              "id": "comma",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a,b\"",
+              "expected": "\"a,b\""
+            },
+            {
+              "id": "quote",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a\"\"b\"",
+              "expected": "\"a\"\"b\""
+            },
+            {
+              "id": "unicode",
+              "kind": "control",
+              "status": "pass",
+              "actual": "東京 Café",
+              "expected": "東京 Café"
+            },
+            {
+              "id": "empty",
+              "kind": "control",
+              "status": "pass",
+              "actual": "",
+              "expected": ""
+            },
+            {
+              "id": "lf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\nsecond\"",
+              "expected": "\"first\nsecond\""
+            },
+            {
+              "id": "cr",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\rsecond\"",
+              "expected": "\"first\rsecond\""
+            },
+            {
+              "id": "crlf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\r\nsecond\"",
+              "expected": "\"first\r\nsecond\""
+            }
+          ]
+        },
+        "results": [
+          {
+            "command": [
+              "node",
+              "--experimental-strip-types",
+              "--test"
+            ],
+            "ok": true,
+            "code": 0,
+            "stdout": "✔ existing CSV controls (0.2665ms)\n✔ quotes CR, LF and CRLF while preserving embedded quotes (0.311792ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 34.817333\n",
+            "stderr": "",
+            "error": null
+          }
+        ],
+        "changedDuringChecks": false,
+        "at": "2026-10-15T09:28:30.363Z",
+        "scope": "Frozen JSON witness and registered checks only."
+      },
+      "note": "Extended encodeCell includes checks with CR and LF; preserved regex quote doubling and concatenation. Added newline and embedded quote regression tests.",
+      "commit": "bab7970645c31e4d5e124222ad0d339031cf1302",
+      "diff": "diff --git a/.fixrelay/relay-6e1c5bed/LICENSE.source b/.fixrelay/relay-6e1c5bed/LICENSE.source\nnew file mode 100644\nindex 0000000..ce94c99\n--- /dev/null\n+++ b/.fixrelay/relay-6e1c5bed/LICENSE.source\n@@ -0,0 +1,21 @@\n+MIT License\n+\n+Copyright (c) 2026 light338\n+\n+Permission is hereby granted, free of charge, to any person obtaining a copy\n+of this software and associated documentation files (the \"Software\"), to deal\n+in the Software without restriction, including without limitation the rights\n+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n+copies of the Software, and to permit persons to whom the Software is\n+furnished to do so, subject to the following conditions:\n+\n+The above copyright notice and this permission notice shall be included in all\n+copies or substantial portions of the Software.\n+\n+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n+SOFTWARE.\ndiff --git a/.fixrelay/relay-6e1c5bed/receipt.json b/.fixrelay/relay-6e1c5bed/receipt.json\nnew file mode 100644\nindex 0000000..a0dc52b\n--- /dev/null\n+++ b/.fixrelay/relay-6e1c5bed/receipt.json\n@@ -0,0 +1,142 @@\n+{\n+  \"version\": 1,\n+  \"planId\": \"relay-6e1c5bed\",\n+  \"source\": {\n+    \"repo\": \"<DEMO_ROOT>/source\",\n+    \"before\": \"e93959ff2a25843338ee131d39ebd8a04074300a\",\n+    \"after\": \"3ddce4184471c46382fe1c72ba9d4cc0885f6917\",\n+    \"entry\": \"src/csv.mjs\",\n+    \"exportName\": \"csvCell\"\n+  },\n+  \"capsuleHash\": \"8b2d07bd1a3cd04a156b5e5a365fd5263a686ba8d9b3d191c78ca66d99d9086e\",\n+  \"before\": {\n+    \"status\": \"reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\nsecond\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\rsecond\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\r\\nsecond\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"after\": {\n+    \"status\": \"not_reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\rsecond\\\"\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\r\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"note\": \"Extended encodeCell includes checks with CR and LF; preserved regex quote doubling and concatenation. Added newline and embedded quote regression tests.\",\n+  \"checks\": [\n+    [\n+      \"node\",\n+      \"--experimental-strip-types\",\n+      \"--test\"\n+    ]\n+  ]\n+}\ndiff --git a/lib/cell.mjs b/lib/cell.mjs\nindex 484cc82..663c5d2 100644\n--- a/lib/cell.mjs\n+++ b/lib/cell.mjs\n@@ -1 +1 @@\n-export function encodeCell(text) { const escaped = text.replace(/\"/g, '\"\"'); if (text.includes(\",\") || text.includes('\"')) return '\"' + escaped + '\"'; return text; }\n+export function encodeCell(text) { const escaped = text.replace(/\"/g, '\"\"'); if (text.includes(\",\") || text.includes('\"') || text.includes(\"\\r\") || text.includes(\"\\n\")) return '\"' + escaped + '\"'; return text; }\ndiff --git a/test/newlines.test.mjs b/test/newlines.test.mjs\nnew file mode 100644\nindex 0000000..7b165a5\n--- /dev/null\n+++ b/test/newlines.test.mjs\n@@ -0,0 +1,10 @@\n+import {test} from 'node:test';\n+import assert from 'node:assert/strict';\n+import {encodeCell} from '../lib/cell.mjs';\n+\n+test('quotes CR, LF and CRLF while preserving embedded quotes', () => {\n+  for (const ending of ['\\r', '\\n', '\\r\\n']) {\n+    assert.equal(encodeCell('first' + ending + 'second'), '\"first' + ending + 'second\"');\n+    assert.equal(encodeCell('a\"' + ending + 'b'), '\"a\"\"' + ending + 'b\"');\n+  }\n+});",
+      "scope": "Prepared candidate only: no automatic merge, push or PR. Witness is finite; original projects remain unchanged."
+    },
+    {
+      "planId": "relay-9ea066e3",
+      "repo": "<DEMO_ROOT>/crm",
+      "candidate": "<DEMO_ROOT>/run/candidates/tree-5058b4b3",
+      "file": "utils/format.ts",
+      "exportName": "serializeField",
+      "status": "checks_passed",
+      "verificationStale": false,
+      "source": {
+        "repo": "<DEMO_ROOT>/source",
+        "before": "e93959ff2a25843338ee131d39ebd8a04074300a",
+        "after": "3ddce4184471c46382fe1c72ba9d4cc0885f6917",
+        "entry": "src/csv.mjs",
+        "exportName": "csvCell"
+      },
+      "before": {
+        "status": "reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\nsecond",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\rsecond",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\r\nsecond",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "after": {
+        "status": "not_reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\nsecond\"",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\rsecond\"",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\r\nsecond\"",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "verification": {
+        "passed": true,
+        "tree": "cd944adacdc3c45cefc058d9fc7e68e8808e2512",
+        "witness": {
+          "status": "not_reproduced",
+          "results": [
+            {
+              "id": "plain",
+              "kind": "control",
+              "status": "pass",
+              "actual": "alpha",
+              "expected": "alpha"
+            },
+            {
+              "id": "comma",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a,b\"",
+              "expected": "\"a,b\""
+            },
+            {
+              "id": "quote",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a\"\"b\"",
+              "expected": "\"a\"\"b\""
+            },
+            {
+              "id": "unicode",
+              "kind": "control",
+              "status": "pass",
+              "actual": "東京 Café",
+              "expected": "東京 Café"
+            },
+            {
+              "id": "empty",
+              "kind": "control",
+              "status": "pass",
+              "actual": "",
+              "expected": ""
+            },
+            {
+              "id": "lf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\nsecond\"",
+              "expected": "\"first\nsecond\""
+            },
+            {
+              "id": "cr",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\rsecond\"",
+              "expected": "\"first\rsecond\""
+            },
+            {
+              "id": "crlf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\r\nsecond\"",
+              "expected": "\"first\r\nsecond\""
+            }
+          ]
+        },
+        "results": [
+          {
+            "command": [
+              "node",
+              "--experimental-strip-types",
+              "--test"
+            ],
+            "ok": true,
+            "code": 0,
+            "stdout": "✔ existing CSV controls (0.314541ms)\n✔ quotes CR, LF and CRLF while preserving embedded quotes (0.358291ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 62.637834\n",
+            "stderr": "",
+            "error": null
+          }
+        ],
+        "changedDuringChecks": false,
+        "at": "2026-10-15T09:28:31.471Z",
+        "scope": "Frozen JSON witness and registered checks only."
+      },
+      "note": "Extended serializeField indexOf checks with CR and LF; preserved typed arrow API, split/join escaping and template output. Added newline and embedded quote regression tests.",
+      "commit": "547d2875d30377b896ae17a9bdd6b93856193b99",
+      "diff": "diff --git a/.fixrelay/relay-9ea066e3/LICENSE.source b/.fixrelay/relay-9ea066e3/LICENSE.source\nnew file mode 100644\nindex 0000000..ce94c99\n--- /dev/null\n+++ b/.fixrelay/relay-9ea066e3/LICENSE.source\n@@ -0,0 +1,21 @@\n+MIT License\n+\n+Copyright (c) 2026 light338\n+\n+Permission is hereby granted, free of charge, to any person obtaining a copy\n+of this software and associated documentation files (the \"Software\"), to deal\n+in the Software without restriction, including without limitation the rights\n+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n+copies of the Software, and to permit persons to whom the Software is\n+furnished to do so, subject to the following conditions:\n+\n+The above copyright notice and this permission notice shall be included in all\n+copies or substantial portions of the Software.\n+\n+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n+SOFTWARE.\ndiff --git a/.fixrelay/relay-9ea066e3/receipt.json b/.fixrelay/relay-9ea066e3/receipt.json\nnew file mode 100644\nindex 0000000..fa68070\n--- /dev/null\n+++ b/.fixrelay/relay-9ea066e3/receipt.json\n@@ -0,0 +1,142 @@\n+{\n+  \"version\": 1,\n+  \"planId\": \"relay-9ea066e3\",\n+  \"source\": {\n+    \"repo\": \"<DEMO_ROOT>/source\",\n+    \"before\": \"e93959ff2a25843338ee131d39ebd8a04074300a\",\n+    \"after\": \"3ddce4184471c46382fe1c72ba9d4cc0885f6917\",\n+    \"entry\": \"src/csv.mjs\",\n+    \"exportName\": \"csvCell\"\n+  },\n+  \"capsuleHash\": \"8b2d07bd1a3cd04a156b5e5a365fd5263a686ba8d9b3d191c78ca66d99d9086e\",\n+  \"before\": {\n+    \"status\": \"reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\nsecond\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\rsecond\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\r\\nsecond\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"after\": {\n+    \"status\": \"not_reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\rsecond\\\"\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\r\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"note\": \"Extended serializeField indexOf checks with CR and LF; preserved typed arrow API, split/join escaping and template output. Added newline and embedded quote regression tests.\",\n+  \"checks\": [\n+    [\n+      \"node\",\n+      \"--experimental-strip-types\",\n+      \"--test\"\n+    ]\n+  ]\n+}\ndiff --git a/test/newlines.test.mjs b/test/newlines.test.mjs\nnew file mode 100644\nindex 0000000..dbec440\n--- /dev/null\n+++ b/test/newlines.test.mjs\n@@ -0,0 +1,10 @@\n+import {test} from 'node:test';\n+import assert from 'node:assert/strict';\n+import {serializeField} from '../utils/format.ts';\n+\n+test('quotes CR, LF and CRLF while preserving embedded quotes', () => {\n+  for (const ending of ['\\r', '\\n', '\\r\\n']) {\n+    assert.equal(serializeField('first' + ending + 'second'), '\"first' + ending + 'second\"');\n+    assert.equal(serializeField('a\"' + ending + 'b'), '\"a\"\"' + ending + 'b\"');\n+  }\n+});\ndiff --git a/utils/format.ts b/utils/format.ts\nindex df44321..fffec84 100644\n--- a/utils/format.ts\n+++ b/utils/format.ts\n@@ -1 +1 @@\n-export const serializeField = (entry: string): string => { let needsQuotes = entry.indexOf(\",\") >= 0 || entry.indexOf('\"') >= 0; const safe = entry.split('\"').join('\"\"'); return needsQuotes ? `\"${safe}\"` : entry; };\n+export const serializeField = (entry: string): string => { let needsQuotes = entry.indexOf(\",\") >= 0 || entry.indexOf('\"') >= 0 || entry.indexOf(\"\\r\") >= 0 || entry.indexOf(\"\\n\") >= 0; const safe = entry.split('\"').join('\"\"'); return needsQuotes ? `\"${safe}\"` : entry; };",
+      "scope": "Prepared candidate only: no automatic merge, push or PR. Witness is finite; original projects remain unchanged."
+    },
+    {
+      "planId": "relay-1c8110a7",
+      "repo": "<DEMO_ROOT>/exporter",
+      "candidate": "<DEMO_ROOT>/run/candidates/tree-3529fee1",
+      "file": "csv/escape.mjs",
+      "exportName": "escapeRecordValue",
+      "status": "checks_passed",
+      "verificationStale": false,
+      "source": {
+        "repo": "<DEMO_ROOT>/source",
+        "before": "e93959ff2a25843338ee131d39ebd8a04074300a",
+        "after": "3ddce4184471c46382fe1c72ba9d4cc0885f6917",
+        "entry": "src/csv.mjs",
+        "exportName": "csvCell"
+      },
+      "before": {
+        "status": "reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\nsecond",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\rsecond",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "mismatch",
+            "actual": "first\r\nsecond",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "after": {
+        "status": "not_reproduced",
+        "results": [
+          {
+            "id": "plain",
+            "kind": "control",
+            "status": "pass",
+            "actual": "alpha",
+            "expected": "alpha"
+          },
+          {
+            "id": "comma",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a,b\"",
+            "expected": "\"a,b\""
+          },
+          {
+            "id": "quote",
+            "kind": "control",
+            "status": "pass",
+            "actual": "\"a\"\"b\"",
+            "expected": "\"a\"\"b\""
+          },
+          {
+            "id": "unicode",
+            "kind": "control",
+            "status": "pass",
+            "actual": "東京 Café",
+            "expected": "東京 Café"
+          },
+          {
+            "id": "empty",
+            "kind": "control",
+            "status": "pass",
+            "actual": "",
+            "expected": ""
+          },
+          {
+            "id": "lf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\nsecond\"",
+            "expected": "\"first\nsecond\""
+          },
+          {
+            "id": "cr",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\rsecond\"",
+            "expected": "\"first\rsecond\""
+          },
+          {
+            "id": "crlf",
+            "kind": "regression",
+            "status": "pass",
+            "actual": "\"first\r\nsecond\"",
+            "expected": "\"first\r\nsecond\""
+          }
+        ]
+      },
+      "verification": {
+        "passed": true,
+        "tree": "608cbeacd45cf2fecca223d083cbce9cfbde5daf",
+        "witness": {
+          "status": "not_reproduced",
+          "results": [
+            {
+              "id": "plain",
+              "kind": "control",
+              "status": "pass",
+              "actual": "alpha",
+              "expected": "alpha"
+            },
+            {
+              "id": "comma",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a,b\"",
+              "expected": "\"a,b\""
+            },
+            {
+              "id": "quote",
+              "kind": "control",
+              "status": "pass",
+              "actual": "\"a\"\"b\"",
+              "expected": "\"a\"\"b\""
+            },
+            {
+              "id": "unicode",
+              "kind": "control",
+              "status": "pass",
+              "actual": "東京 Café",
+              "expected": "東京 Café"
+            },
+            {
+              "id": "empty",
+              "kind": "control",
+              "status": "pass",
+              "actual": "",
+              "expected": ""
+            },
+            {
+              "id": "lf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\nsecond\"",
+              "expected": "\"first\nsecond\""
+            },
+            {
+              "id": "cr",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\rsecond\"",
+              "expected": "\"first\rsecond\""
+            },
+            {
+              "id": "crlf",
+              "kind": "regression",
+              "status": "pass",
+              "actual": "\"first\r\nsecond\"",
+              "expected": "\"first\r\nsecond\""
+            }
+          ]
+        },
+        "results": [
+          {
+            "command": [
+              "node",
+              "--experimental-strip-types",
+              "--test"
+            ],
+            "ok": true,
+            "code": 0,
+            "stdout": "✔ existing CSV controls (0.278083ms)\n✔ quotes CR, LF and CRLF while preserving embedded quotes (0.320542ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 35.438917\n",
+            "stderr": "",
+            "error": null
+          }
+        ],
+        "changedDuringChecks": false,
+        "at": "2026-10-15T09:28:32.521Z",
+        "scope": "Frozen JSON witness and registered checks only."
+      },
+      "note": "Added CR and LF to escapeRecordValue symbols array; preserved some/indexOf detection, replaceAll escaping and array join output. Added newline and embedded quote regression tests.",
+      "commit": "1e98ead3314d684f90d20e454b56d72d297c26db",
+      "diff": "diff --git a/.fixrelay/relay-1c8110a7/LICENSE.source b/.fixrelay/relay-1c8110a7/LICENSE.source\nnew file mode 100644\nindex 0000000..ce94c99\n--- /dev/null\n+++ b/.fixrelay/relay-1c8110a7/LICENSE.source\n@@ -0,0 +1,21 @@\n+MIT License\n+\n+Copyright (c) 2026 light338\n+\n+Permission is hereby granted, free of charge, to any person obtaining a copy\n+of this software and associated documentation files (the \"Software\"), to deal\n+in the Software without restriction, including without limitation the rights\n+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n+copies of the Software, and to permit persons to whom the Software is\n+furnished to do so, subject to the following conditions:\n+\n+The above copyright notice and this permission notice shall be included in all\n+copies or substantial portions of the Software.\n+\n+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n+SOFTWARE.\ndiff --git a/.fixrelay/relay-1c8110a7/receipt.json b/.fixrelay/relay-1c8110a7/receipt.json\nnew file mode 100644\nindex 0000000..0d20bdf\n--- /dev/null\n+++ b/.fixrelay/relay-1c8110a7/receipt.json\n@@ -0,0 +1,142 @@\n+{\n+  \"version\": 1,\n+  \"planId\": \"relay-1c8110a7\",\n+  \"source\": {\n+    \"repo\": \"<DEMO_ROOT>/source\",\n+    \"before\": \"e93959ff2a25843338ee131d39ebd8a04074300a\",\n+    \"after\": \"3ddce4184471c46382fe1c72ba9d4cc0885f6917\",\n+    \"entry\": \"src/csv.mjs\",\n+    \"exportName\": \"csvCell\"\n+  },\n+  \"capsuleHash\": \"8b2d07bd1a3cd04a156b5e5a365fd5263a686ba8d9b3d191c78ca66d99d9086e\",\n+  \"before\": {\n+    \"status\": \"reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\nsecond\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\rsecond\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"mismatch\",\n+        \"actual\": \"first\\r\\nsecond\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"after\": {\n+    \"status\": \"not_reproduced\",\n+    \"results\": [\n+      {\n+        \"id\": \"plain\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"alpha\",\n+        \"expected\": \"alpha\"\n+      },\n+      {\n+        \"id\": \"comma\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a,b\\\"\",\n+        \"expected\": \"\\\"a,b\\\"\"\n+      },\n+      {\n+        \"id\": \"quote\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"a\\\"\\\"b\\\"\",\n+        \"expected\": \"\\\"a\\\"\\\"b\\\"\"\n+      },\n+      {\n+        \"id\": \"unicode\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"東京 Café\",\n+        \"expected\": \"東京 Café\"\n+      },\n+      {\n+        \"id\": \"empty\",\n+        \"kind\": \"control\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\",\n+        \"expected\": \"\"\n+      },\n+      {\n+        \"id\": \"lf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\nsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"cr\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\rsecond\\\"\",\n+        \"expected\": \"\\\"first\\rsecond\\\"\"\n+      },\n+      {\n+        \"id\": \"crlf\",\n+        \"kind\": \"regression\",\n+        \"status\": \"pass\",\n+        \"actual\": \"\\\"first\\r\\nsecond\\\"\",\n+        \"expected\": \"\\\"first\\r\\nsecond\\\"\"\n+      }\n+    ]\n+  },\n+  \"note\": \"Added CR and LF to escapeRecordValue symbols array; preserved some/indexOf detection, replaceAll escaping and array join output. Added newline and embedded quote regression tests.\",\n+  \"checks\": [\n+    [\n+      \"node\",\n+      \"--experimental-strip-types\",\n+      \"--test\"\n+    ]\n+  ]\n+}\ndiff --git a/csv/escape.mjs b/csv/escape.mjs\nindex 5c8f166..347457e 100644\n--- a/csv/escape.mjs\n+++ b/csv/escape.mjs\n@@ -1 +1 @@\n-export function escapeRecordValue(input) { const symbols = [\",\", '\"']; const quoted = symbols.some(symbol => input.indexOf(symbol) !== -1); const escaped = input.replaceAll('\"', '\"\"'); return quoted ? ['\"', escaped, '\"'].join(\"\") : input; }\n+export function escapeRecordValue(input) { const symbols = [\",\", '\"', \"\\r\", \"\\n\"]; const quoted = symbols.some(symbol => input.indexOf(symbol) !== -1); const escaped = input.replaceAll('\"', '\"\"'); return quoted ? ['\"', escaped, '\"'].join(\"\") : input; }\ndiff --git a/test/newlines.test.mjs b/test/newlines.test.mjs\nnew file mode 100644\nindex 0000000..f7e0674\n--- /dev/null\n+++ b/test/newlines.test.mjs\n@@ -0,0 +1,10 @@\n+import {test} from 'node:test';\n+import assert from 'node:assert/strict';\n+import {escapeRecordValue} from '../csv/escape.mjs';\n+\n+test('quotes CR, LF and CRLF while preserving embedded quotes', () => {\n+  for (const ending of ['\\r', '\\n', '\\r\\n']) {\n+    assert.equal(escapeRecordValue('first' + ending + 'second'), '\"first' + ending + 'second\"');\n+    assert.equal(escapeRecordValue('a\"' + ending + 'b'), '\"a\"\"' + ending + 'b\"');\n+  }\n+});",
+      "scope": "Prepared candidate only: no automatic merge, push or PR. Witness is finite; original projects remain unchanged."
+    }
+  ],
+  "controls": [
+    {
+      "repo": "<DEMO_ROOT>/already-fixed",
+      "probeId": "probe-513a1e20",
+      "file": "csv.mjs",
+      "exportName": "csvCell",
+      "status": "not_reproduced",
+      "results": [
+        {
+          "id": "plain",
+          "kind": "control",
+          "status": "pass",
+          "actual": "alpha",
+          "expected": "alpha"
+        },
+        {
+          "id": "comma",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a,b\"",
+          "expected": "\"a,b\""
+        },
+        {
+          "id": "quote",
+          "kind": "control",
+          "status": "pass",
+          "actual": "\"a\"\"b\"",
+          "expected": "\"a\"\"b\""
+        },
+        {
+          "id": "unicode",
+          "kind": "control",
+          "status": "pass",
+          "actual": "東京 Café",
+          "expected": "東京 Café"
+        },
+        {
+          "id": "empty",
+          "kind": "control",
+          "status": "pass",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "id": "lf",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\nsecond\"",
+          "expected": "\"first\nsecond\""
+        },
+        {
+          "id": "cr",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\rsecond\"",
+          "expected": "\"first\rsecond\""
+        },
+        {
+          "id": "crlf",
+          "kind": "regression",
+          "status": "pass",
+          "actual": "\"first\r\nsecond\"",
+          "expected": "\"first\r\nsecond\""
+        }
+      ],
+      "scope": "Only a regression mismatch with passing controls is reproduced; import/runtime errors are inconclusive."
+    },
+    {
+      "repo": "<DEMO_ROOT>/unrelated",
+      "probeId": "probe-237362cf",
+      "file": "encode.mjs",
+      "exportName": "encodeValue",
+      "status": "incompatible",
+      "results": [
+        {
+          "id": "plain",
+          "kind": "control",
+          "status": "pass",
+          "actual": "alpha",
+          "expected": "alpha"
+        },
+        {
+          "id": "comma",
+          "kind": "control",
+          "status": "mismatch",
+          "actual": "a%2Cb",
+          "expected": "\"a,b\""
+        },
+        {
+          "id": "quote",
+          "kind": "control",
+          "status": "mismatch",
+          "actual": "a%22b",
+          "expected": "\"a\"\"b\""
+        },
+        {
+          "id": "unicode",
+          "kind": "control",
+          "status": "mismatch",
+          "actual": "%E6%9D%B1%E4%BA%AC%20Caf%C3%A9",
+          "expected": "東京 Café"
+        },
+        {
+          "id": "empty",
+          "kind": "control",
+          "status": "pass",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "id": "lf",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first%0Asecond",
+          "expected": "\"first\nsecond\""
+        },
+        {
+          "id": "cr",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first%0Dsecond",
+          "expected": "\"first\rsecond\""
+        },
+        {
+          "id": "crlf",
+          "kind": "regression",
+          "status": "mismatch",
+          "actual": "first%0D%0Asecond",
+          "expected": "\"first\r\nsecond\""
+        }
+      ],
+      "scope": "Only a regression mismatch with passing controls is reproduced; import/runtime errors are inconclusive."
+    },
+    {
+      "repo": "<DEMO_ROOT>/broken-import",
+      "probeId": "probe-7b7d1554",
+      "file": "broken.mjs",
+      "exportName": "csvCell",
+      "status": "inconclusive",
+      "error": "Probe failed to import/execute",
+      "scope": "Only a regression mismatch with passing controls is reproduced; import/runtime errors are inconclusive."
+    }
+  ],
+  "originalsUnchanged": true,
+  "existingTestsUnchanged": true,
+  "capsuleUnchanged": true,
+  "verifierUnchanged": true,
+  "independentPostAgentChecks": true,
+  "scope": "One authored CSV fixture with three JS/TS variants, three negative controls and a real Codex CLI adaptation. Not independently selected projects or external users."
+}
