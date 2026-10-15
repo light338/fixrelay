@@ -2,6 +2,9 @@
 
 **Fix a copied bug once. Carry the fix into your other projects—with evidence.**
 
+[Open the recorded live demo](https://light338.github.io/fixrelay/) — three actual
+agent-adapted candidates, before/after cases and inspectable diffs.
+
 FixRelay is an experimental local CLI for JS/TS utilities. Give it a source fix
 commit and a finite JSON regression/control witness. It ranks exported functions
 across your repositories, runs the witness in separate worktrees, and prepares
