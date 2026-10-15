@@ -1,0 +1,33 @@
+{
+  "name": "fixrelay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Find copied JS/TS bugs, reproduce them, and verify agent-adapted fixes across repositories",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "bin": {
+    "fixrelay": "bin/fixrelay.mjs",
+    "fixrelay-discover": "bin/fixrelay-discover.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/core.mjs && node --check src/scan.mjs && node --check src/probe.mjs && node --check src/probe-worker.mjs && node --check src/git.mjs && node --check bin/fixrelay.mjs && node --check bin/fixrelay-discover.mjs && node --check examples/setup.mjs && node --check examples/live.mjs && node --check examples/report-html.mjs",
+    "demo:setup": "node examples/setup.mjs",
+    "demo:live": "node examples/live.mjs"
+  },
+  "dependencies": {
+    "typescript": "6.0.3"
+  },
+  "files": [
+    "src",
+    "bin",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ]
+}

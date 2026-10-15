@@ -1,0 +1,5 @@
+FixRelay is MIT licensed, copyright light338 and contributors.
+Git snapshot helpers were adapted from Unmix and FeatureGraft (MIT), by light338.
+TypeScript is an independently licensed dependency (Apache-2.0); its license is
+included by its package distribution. Source root license text, when present,
+is retained with successful candidate receipts; review source permissions and notices.
